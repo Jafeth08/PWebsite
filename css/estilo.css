@@ -472,11 +472,14 @@ span {
 }
 
 .skills .skills-row {
-    flex-wrap: nowrap;
+    display: flex; /* Asegura que las columnas estén alineadas horizontalmente */
+    flex-wrap: wrap; /* Permite que las columnas se ajusten en pantallas más pequeñas */
+    justify-content: space-between; /* Espacio entre las columnas */
 }
 
 .skills-row .skills-column {
-    flex: 1 1 50%;
+    flex: 1 1 calc(50% - 20px); /* Cada columna ocupará un 50% menos un margen */
+    margin: 10px; /* Margen entre las columnas */
 }
 
 .skills-column .title {
@@ -547,72 +550,81 @@ span {
 }
 
 .skills-column:nth-child(1) .skills-content .progress:nth-child(1) .bar span {
-   width: 70%; 
+    width: 70%; 
 }
 
 .skills-column:nth-child(1) .skills-content .progress:nth-child(2) .bar span {
     width: 70%; 
- }
+}
 
- .skills-column:nth-child(1) .skills-content .progress:nth-child(3) .bar span {
+.skills-column:nth-child(1) .skills-content .progress:nth-child(3) .bar span {
     width: 50%; 
- }
+}
 
- .skills-column:nth-child(1) .skills-content .progress:nth-child(4) .bar span {
+.skills-column:nth-child(1) .skills-content .progress:nth-child(4) .bar span {
     width: 0%; 
- }
+}
 
- .skills-column:nth-child(2) .skills-content .progress:nth-child(1) .bar span {
+.skills-column:nth-child(2) .skills-content .progress:nth-child(1) .bar span {
     width: 75%; 
- }
- 
- .skills-column:nth-child(2) .skills-content .progress:nth-child(2) .bar span {
-     width: 60%; 
-  }
- 
-  .skills-column:nth-child(2) .skills-content .progress:nth-child(3) .bar span {
-     width: 70%; 
-  }
- 
-  .skills-column:nth-child(2) .skills-content .progress:nth-child(4) .bar span {
-     width: 40%; 
-  }
+}
 
-  .skills-column:nth-child(3) .skills-content .progress:nth-child(1) .bar span {
+.skills-column:nth-child(2) .skills-content .progress:nth-child(2) .bar span {
+    width: 60%; 
+}
+
+.skills-column:nth-child(2) .skills-content .progress:nth-child(3) .bar span {
+    width: 70%; 
+}
+
+.skills-column:nth-child(2) .skills-content .progress:nth-child(4) .bar span {
+    width: 40%; 
+}
+
+.skills-column:nth-child(3) .skills-content .progress:nth-child(1) .bar span {
     width: 95%; 
- }
+}
 
- .skills-column:nth-child(3) .skills-content .progress:nth-child(2) .bar span {
+.skills-column:nth-child(3) .skills-content .progress:nth-child(2) .bar span {
     width: 100%; 
- }
+}
 
- .skills-column:nth-child(3) .skills-content .progress:nth-child(3) .bar span {
+.skills-column:nth-child(3) .skills-content .progress:nth-child(3) .bar span {
     width: 100%; 
- }
+}
 
- .skills-column:nth-child(3) .skills-content .progress:nth-child(4) .bar span {
+.skills-column:nth-child(3) .skills-content .progress:nth-child(4) .bar span {
     width: 90%; 
- }
+}
 
- .skills-column:nth-child(3) .skills-content .progress:nth-child(5) .bar span {
+.skills-column:nth-child(3) .skills-content .progress:nth-child(5) .bar span {
     width: 100%; 
- }
+}
 
- .skills-column:nth-child(3) .skills-content .progress:nth-child(6) .bar span {
+.skills-column:nth-child(3) .skills-content .progress:nth-child(6) .bar span {
     width: 75%; 
- }
+}
 
- .skills-column:nth-child(3) .skills-content .progress:nth-child(7) .bar span {
+.skills-column:nth-child(3) .skills-content .progress:nth-child(7) .bar span {
     width: 90%; 
- }
+}
 
- .skills-column:nth-child(3) .skills-content .progress:nth-child(8) .bar span {
+.skills-column:nth-child(3) .skills-content .progress:nth-child(8) .bar span {
     width: 90%; 
- }
+}
 
- .skills-column:nth-child(3) .skills-content .progress:nth-child(9) .bar span {
+.skills-column:nth-child(3) .skills-content .progress:nth-child(9) .bar span {
     width: 100%; 
- }
+}
+
+/* Config para pantallas de telefono que son mas pequeñas */
+@media (max-width: 768px) {
+    .skills-column {
+        flex: 1 1 100%; /* En esas pantallas, las columnas ocuparán el 100% de lo que necesitan */
+        margin: 10px 0; /* Contorno pasa a vertical para columnas en pantallas pequeñas, todo esto es para que sea responsivo */
+    }
+}
+
 
  .contact {
     min-height: auto;

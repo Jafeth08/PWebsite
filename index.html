@@ -271,7 +271,7 @@
      <section class="contact" id="contact">
         <h2 class="heading">Mi <span>Contacto</span><span class="animate scroll" style="--i:1;"></span></h2>
 
-        <form action="">
+        <form action="https://formspree.io/f/mnnqpwwr" method="post">
             <div class="input-box">
                 <div class="input-field">
                     <input type="text" name="full_name" placeholder="Nombre Completo" required>
@@ -305,12 +305,49 @@
                 <span class="animate scroll" style="--i:7;"></span>
             </div>
 
+            <input type="hidden" name="_replyto" value="ejva08@gmail.com">
+
             <div class="btn-box btns">
                 <button type="submit" class="btn">Enviar</button>
 
                 <span class="animate scroll" style="--i:9;"></span>
             </div>
         </form>
+
+        <div id="response-message" style="display: none;"></div>
+
+        <script>
+            const form = document.getElementById('contact-form');
+            const responseMessage = document.getElementById('response-message');
+
+             form.addEventListener('submit', async (event) => {
+                event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+
+                const formData = new FormData(form);
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    responseMessage.innerText = 'Mensaje enviado correctamente.';
+                    responseMessage.style.color = 'green';
+                } else {
+                    throw new Error('Error al enviar el mensaje.');
+                }
+            } catch (error) {
+                responseMessage.innerText = 'No se pudo enviar el mensaje. Intenta de nuevo.';
+                responseMessage.style.color = 'red';
+            } finally {
+                responseMessage.style.display = 'block'; // Muestra el mensaje de respuesta
+            }
+            });
+        </script>
         
      </section>
 
